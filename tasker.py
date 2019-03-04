@@ -14,8 +14,8 @@ def todo(_, table):
 	fe = Key('Completed').eq(0)
 	pe = "Task"
 	uncompleted = table.scan(
-		ProjectionExpression=pe,
-		FilterExpression=fe
+		ProjectionExpression = pe,
+		FilterExpression = fe
 		)
 	s = ''
 	counter = 0
@@ -33,8 +33,8 @@ def complete(_, table):
 	fe = Key('Completed').eq(1)
 	pe = "Task"
 	completed = table.scan(
-		ProjectionExpression=pe,
-		FilterExpression=fe
+		ProjectionExpression = pe,
+		FilterExpression = fe
 		)
 	s = ''
 	counter = 0
@@ -53,10 +53,10 @@ def checkoff(text, table):
 		return "Checking a task requires a task argument."
 	s = ' '.join(text[1:])
 	response = table.update_item(
-		Key={'Task': s.lower()},
-	UpdateExpression="set Completed = :d",
-	ExpressionAttributeValues={':d': 1},
-	ReturnValues="UPDATED_NEW"
+		Key = {'Task': s.lower()},
+		UpdateExpression = "set Completed = :d",
+		ExpressionAttributeValues = {':d': 1},
+		ReturnValues = "UPDATED_NEW"
 	)
 	return "Task completed!"
 	
@@ -65,7 +65,7 @@ def deleteTask(text, table):
 		return "Deleting a task requires a task argument."
 	s = ' '.join(text[1:])
 	table.delete_item(
-		Key={'Task': s.lower()}
+		Key={'Task' : s.lower()}
 	)
 	return "Task deleted"
 
