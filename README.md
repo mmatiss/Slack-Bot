@@ -1,8 +1,5 @@
-# Coding Challenge
-For the Ping coding challenge, the three slack commands I chose to implement were a URL shortener, a basic task manager, and a location based weather app.
-
-The slack  with these apps is located at ping-challenge.slack.com
-The Account email to get in is: mmatiss42@gmail.com and the password is Ping-Account
+# Slack Bot
+In this file, I have implemented a URL shortener, a basic task manager, and a location based weather app. These files are connected to an AWS lambda instance that allows requests to be executed quickly and efficiently.
 
 ## My implementations
 To run my slack commands, I chose to use AWS Lambda for running my commands as they were called and Amazon API Gateway to run idly until an http request is sent to it. Upon recieving the request, it is mapped to a JSON file and sent to the lambda, which then executes the command. I additionally used DynamoDB as a simple way of storing information between calls to the server. 
